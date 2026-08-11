@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David's Collection</title>
+<title>Aveli Sport Cards Collection</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <style>
   :root {
@@ -372,7 +372,7 @@
 </head>
 <body>
 <header>
-  <h1>David's Collection</h1>
+  <h1>DaAveli Sport Cards Collectionh1>
   <div class="sub">492 cards. Click any photo for a closer look.</div>
   <div class="controls">
     <input type="text" id="search" placeholder="Search by player, set, or year...">
@@ -552,7 +552,7 @@ function buildImageArea(c) {
     const frac = (ev.clientX - rect.left) / rect.width;
     if (images.length > 1 && frac < 0.18) { show(idx - 1); return; }
     if (images.length > 1 && frac > 0.82) { show(idx + 1); return; }
-    openLightbox(c.displayName + (c.displayMeta ? " — " + c.displayMeta : ""), images, idx);
+    openLightbox(c.displayName + (c.displayMeta ? " — " + c.displayMeta : "") + " · " + fmtMoney(c.displayValue), images, idx);
   };
 
   let touchStartX = null;
