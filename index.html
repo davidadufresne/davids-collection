@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aveli Sport Cards Collection</title>
+<title>Aveli Sports Cards Collection</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <style>
   :root {
@@ -78,7 +78,7 @@
     font-size: 23px;
     font-weight: 800;
     letter-spacing: -0.02em;
-    background: linear-gradient(90deg, var(--text), var(--accent) 60%, var(--accent2));
+    background: linear-gradient(90deg, #ffffff, #ef4444);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -372,7 +372,7 @@
 </head>
 <body>
 <header>
-  <h1>Aveli Sport Cards Collection</h1>
+  <h1>Aveli Sports Cards Collection</h1>
   <div class="sub">492 cards. Click any photo for a closer look.</div>
   <div class="controls">
     <input type="text" id="search" placeholder="Search by player, set, or year...">
@@ -930,7 +930,7 @@ function openEditModal(id) {
         if (!file) return;
         uploadBtn.textContent = "Uploading...";
         try {
-          const dataUri = await compressImage(file, 1000, 0.82);
+          const dataUri = await compressImage(file, 1800, 0.95);
           if (await setCardPhoto(id, side, dataUri)) { overlay.remove(); openEditModal(id); render(); }
           else { uploadBtn.textContent = photos[side] ? "Replace" : "Upload"; }
         } catch (err) {
