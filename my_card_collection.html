@@ -495,7 +495,7 @@ function getCardImages(c) {
   const imgs = [];
   if (p.front) imgs.push({ src: p.front, label: "Front" });
   else if (c.img) imgs.push({ src: c.img, label: "Front" });
-  if (p.back) imgs.push({ src: p.back, label: "Back" });
+  if (p.back) imgs.push({ src: p.back, label: "Back" }); else if (c.backImg) imgs.push({ src: c.backImg, label: "Back" });
   return imgs;
 }
 function compressImage(file, maxDim, quality) {
@@ -1124,7 +1124,7 @@ function mapCsvRowToCard(row, idx) {
     flags: row["flags"] || null,
     condition: row["condition"] || null,
     value: num(row["market_value"]),
-    img: row["front_image"] || null,
+    img: row["front_image"] || null, backImg: row["back_image"] || null,
     qty: parseInt(row["quantity"], 10) || 1
   };
 }
