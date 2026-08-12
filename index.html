@@ -85,7 +85,7 @@
     display: inline-block;
   }
   .site-logo-wrap { display: block; text-align: center; }
-  .site-logo { height: 100px; width: 73px; object-fit: cover; object-position: center; display: inline-block; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.45)); }
+  .logo-text { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; } .logo-main { font-size: 34px; font-weight: 900; letter-spacing: 0.05em; background: linear-gradient(90deg, #ffe9b8, #d4a24e 55%, #b3312e); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 2px 6px rgba(0,0,0,0.35); } .logo-sub { font-size: 11px; font-weight: 700; letter-spacing: 0.28em; color: var(--text); margin-top: 3px; }
   header .sub {
     color: var(--text-dim);
     font-size: 13px;
@@ -374,7 +374,7 @@
 </head>
 <body>
 <header>
-  <h1 class="site-logo-wrap"><img class="site-logo" alt="Aveli Sports Cards" src="Switch_2023_with_2026_2K_202608121349.jpeg"></h1>
+  <h1 class="site-logo-wrap"><span class="logo-text"><span class="logo-main">AVELI</span><span class="logo-sub">Sports Cards</span></span></h1>
   <div class="sub">Click any photo for a closer look.</div>
   <div class="controls">
     <input type="text" id="search" placeholder="Search by player, set, or year...">
