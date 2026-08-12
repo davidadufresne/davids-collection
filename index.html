@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aveli Sports Cards Collection</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAwFBMVEXUzcu3pJ6vi4eJhoWdbl+Ba2ZuZl9gZm+QT0luVFBeWlhgS0lPV2FKT1lPSEhARkxzOzhcOT1HPj1JMjY4Pko0Nz83MjguKy8gL0EcLD0bKjsaKTgYKDsaJjUXJjYWJjYVJTgtHyUWIjIVIzIUIzIUITAUHCcTITETIDATIC4THy4SIDASHy8SHy0SHi4RHi0RHiwRHCkQHi0QHCsQHCoNHC0PGyoPGicOGigOGSYMGSgOGCQNFyMMFyMMFB8JEx8iPAanAAAC9ElEQVR42i2T6ZKqMBSEw76vAWRxYNhRUVAQQQXf/63uiXP7R4qq/tKdEwDN8zj2xzIvEqL4u+RZXpy68zDOy4Lm8Qp+lsWg/T4k2sNjUp+aru/nGV2Jn2dJHEVhGHwVhlGcFEV9OpxHApzLMsvjr70PfB+WIIyi+FszjujaH8o8j+MoCfZ7x+e50PABgRoA2r5HxE9IvRMYgcyrss7vjSAMvi3l+QxAkeVJVBi0wMuqwEmCZvA2z8kRAM25R8OZJESJy9IygziRlXjO4DhZiZI8Lw89Oh/qPI+iX1tnGQoA0RRNQU5x9RsnedMcUFMU0BC5KsOwAgM1umXzEq+5YZIUddOhU10UceEyNCsagioIAqNqjiWKvJHFed70qGnKIq4d1vR9OKGsIJAQ7C2R9+osh4S+Keu4NVhdoChdUVzE0hQgrslL96xobmi4NGUCAIsoVrNYg2JFCjGIsQhQtjBm39b5yWUlJJo8NlVEXIbSTNGry+Z4Qd2lbfLjjsUMYhnLEmiKYhyKUUxcAdB26NY17SnzJNOBvaKoqarAUJSELfxTgz8QoLlFtmL6Aqs4juu5hibwPlbw7nQkwHDr2vZH0jXV0TQf3pYqy7J/13Xdu5cEmEaYo33psqppqqwamiwbqnPXVL1q28swoYlE1KWiyY7t6I7n2LrreE9D04caAmY0D113vHu6b7vuLggz2/PsHRzEtW/N5QvMt9vlbuu7DFuKJPFYUhTFxp5tkyNOBBiG+4/uSSwFYmkJrpqiaQ7b3v0yzAt6PudxqqoULI5XYDqI4ViaxlV1H6bXitZ1gUGeqWLtsJXuIterMMaW5MHGeVlX9H69lnnsl2qrsCWalgVflJVu1Yv8Vy8AVkI8gB6fr51tgrCXPrvnMj2Iv6FtBWRZ5v56HrbUMy2cbs/jcAX7/V43ALZtfQPyeEzXft3SdPsM/Qg2+Nv79UGfz7a936RneVyv4/qZ++nxt339vCoCfP5CvimPaZwfy//0DbzPP+tCfPBIP/ioAAAAAElFTkSuQmCC"><script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <style>
   :root {
-    --bg: #14100d;
-    --bg2: #1c1611;
-    --panel: #241d17;
-    --panel2: #2e2620;
-    --border: #3f3428;
-    --border-hover: #55473a;
-    --text: #f2ede6;
-    --text-dim: #a89a89;
-    --accent: #6d8dff;
-    --accent2: #a06dff;
-    --accent-glow: rgba(109,141,255,0.35);
+    --bg: #0b1420;
+    --bg2: #101d2e;
+    --panel: #16273b;
+    --panel2: #1c3049;
+    --border: #2a4463;
+    --border-hover: #3b5c86;
+    --text: #eef2f8;
+    --text-dim: #8fa3bf;
+    --accent: #d4a24e;
+    --accent2: #b3312e;
+    --accent-glow: rgba(212,162,78,0.35);
     --good: #22c55e;
     --good-glow: rgba(34,197,94,0.35);
     --warn: #f5a623;
@@ -33,9 +33,9 @@
     --border-hover: #c3cadb;
     --text: #171923;
     --text-dim: #5b6272;
-    --accent: #4a6ef0;
-    --accent2: #8b4fe0;
-    --accent-glow: rgba(74,110,240,0.20);
+    --accent: #b3821f;
+    --accent2: #a42523;
+    --accent-glow: rgba(179,130,31,0.20);
     --good: #16a34a;
     --good-glow: rgba(22,163,74,0.20);
     --warn: #b8720a;
@@ -47,8 +47,8 @@
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background:
-      radial-gradient(1200px 500px at 20% -10%, rgba(255,159,64,0.12), transparent 60%),
-      radial-gradient(900px 400px at 90% 0%, rgba(239,68,68,0.09), transparent 60%),
+      radial-gradient(1200px 500px at 20% -10%, rgba(212,162,78,0.10), transparent 60%),
+      radial-gradient(900px 400px at 90% 0%, rgba(179,49,46,0.08), transparent 60%),
       var(--bg);
     color: var(--text);
     min-height: 100vh;
@@ -58,7 +58,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(10,11,15,0.85);
+    background: rgba(11,20,32,0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     padding: 18px 24px;
@@ -78,12 +78,14 @@
     font-size: 23px;
     font-weight: 800;
     letter-spacing: -0.02em;
-    background: linear-gradient(90deg, #ffffff, #ef4444);
+    background: linear-gradient(90deg, #ffffff, #d4a24e);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     display: inline-block;
   }
+  .site-logo-wrap { display: block; }
+  .site-logo { height: 52px; width: auto; display: block; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.45)); }
   header .sub {
     color: var(--text-dim);
     font-size: 13px;
@@ -372,7 +374,7 @@
 </head>
 <body>
 <header>
-  <h1>Aveli Sports Cards Collection</h1>
+  <h1 class="site-logo-wrap"><img class="site-logo" alt="Aveli Sports Cards" src="data:image/png;base64,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"></h1>
   <div class="sub">Click any photo for a closer look.</div>
   <div class="controls">
     <input type="text" id="search" placeholder="Search by player, set, or year...">
