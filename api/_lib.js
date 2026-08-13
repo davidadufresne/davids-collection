@@ -76,4 +76,49 @@ function verifyToken(token) {
       }
 }
 
-module.exports = { loadState, saveState, signToken, verifyToken };
+const LOGIN_ATTEMPTS_PREFIX = 'login_attempts:';
+const MAX_LOGIN_ATTEMPTS = 6;
+const LOGIN_WINDOW_SECONDS = 15 * 60;
+
+async function kvGet(key) {
+        if (!KV_URL || !KV_TOKEN) return null;
+        try {
+                  const res = await fetch(`${KV_URL}/get/${key}`, { headers: { Authorization: `Bearer ${KV_TOKEN}` }, cache: 'no-store' });
+                  if (!res.ok) return null;
+                  const data = await res.json();
+                  return data.result;
+        } catch (e) { return null; }
+}
+
+async function kvIncrWithExpiry(key, seconds) {
+        if (!KV_URL || !KV_TOKEN) return null;
+        try {
+                  const res = await fetch(`${KV_URL}/incr/${key}`, { headers: { Authorization: `Bearer ${KV_TOKEN}` } });
+                  if (!res.ok) return null;
+                  const data = await res.json();
+                  if (data.result === 1) {
+                              await fetch(`${KV_URL}/expire/${key}/${seconds}`, { headers: { Authorization: `Bearer ${KV_TOKEN}` } }).catch(() => {});
+                  }
+                  return data.result;
+        } catch (e) { return null; }
+}
+
+async function kvDel(key) {
+        if (!KV_URL || !KV_TOKEN) return;
+        try { await fetch(`${KV_URL}/del/${key}`, { headers: { Authorization: `Bearer ${KV_TOKEN}` } }); } catch (e) {}
+}
+
+async function checkLoginRateLimit(ip) {
+        const count = parseInt((await kvGet(LOGIN_ATTEMPTS_PREFIX + ip)) || '0', 10);
+        return count < MAX_LOGIN_ATTEMPTS;
+}
+
+async function recordFailedLogin(ip) {
+        await kvIncrWithExpiry(LOGIN_ATTEMPTS_PREFIX + ip, LOGIN_WINDOW_SECONDS);
+}
+
+async function clearLoginAttempts(ip) {
+        await kvDel(LOGIN_ATTEMPTS_PREFIX + ip);
+}
+
+module.exports = { loadState, saveState, signToken, verifyToken, checkLoginRateLimit, recordFailedLogin, clearLoginAttempts };
