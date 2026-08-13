@@ -394,7 +394,7 @@
     <button class="icon-btn admin-only" id="exportBtn">⬇ Export CSV</button>
     <button class="icon-btn admin-only" id="refreshBtn">🔄 Refresh Data</button>
     <input type="file" id="refreshFileInput" accept=".csv" style="display:none;">
-    <button class="lock-btn" id="lockBtn">🔒 Admin Login</button>
+    <button class="lock-btn" id="lockBtn" style="display:none;">🔒 Admin Login</button>
     <div class="stats">
       <span>Showing <b id="shownCount">0</b> of <b id="totalCount">0</b></span>
       <span id="totalValueStat" style="display:none;">Total est. value: <b id="totalValue">$0</b></span>
@@ -614,7 +614,7 @@ function updateLockUI() {
   const unlocked = isUnlocked();
   document.getElementById("totalValueStat").style.display = unlocked ? "" : "none";
   document.querySelectorAll(".admin-only").forEach(el => { el.style.display = unlocked ? (el.tagName === "LABEL" ? "flex" : "inline-block") : "none"; });
-  if (unlocked) { btn.textContent = "🔓 Admin (click to log out)"; btn.classList.add("unlocked"); }
+  btn.style.display = unlocked ? "inline-block" : "none"; if (unlocked) { btn.textContent = "🔓 Admin (click to log out)"; btn.classList.add("unlocked"); }
   else { btn.textContent = "🔒 Admin Login"; btn.classList.remove("unlocked"); document.getElementById("showDeleted").checked = false; }
   render();
 }
@@ -1177,8 +1177,9 @@ async function init() {
   rebuildCategoryOptions();
   applyTheme();
   updateLockUI();
+  if (new URLSearchParams(location.search).get("admin") === "1" && !isUnlocked()) { tryUnlock(); }
 }
 init();
 </script>
 </body>
-</html>
+  </html>
