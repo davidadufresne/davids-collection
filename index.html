@@ -597,7 +597,7 @@ async function tryUnlock() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password: pw })
     });
-    if (!r.ok) { alert("Incorrect password."); return false; }
+    if (!r.ok) { const err = await r.json().catch(() => ({})); alert(err.error || "Incorrect password."); return false; }
     const data = await r.json();
     sessionStorage.setItem(TOKEN_KEY, data.token);
     updateLockUI();
